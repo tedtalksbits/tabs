@@ -1,0 +1,143 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+
+body {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+.center-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 120ch;
+    margin: 0 auto;
+}
+
+.tab-container {
+    box-shadow: 0 0 1px 0 rgba(24, 95, 226, 0.15), 0 6px 12px 0 rgba(24, 95, 226, 0.15);
+    border-radius: 150px;
+    background-color: white;
+}
+
+.tabs {
+    display: flex;
+    position: relative;
+}
+
+.tabs * {
+    z-index: 2;
+}
+
+.tab {
+    --width: 200px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    line-height: 1;
+    color: #000;
+    transition: color 0.3s ease;
+    width: var(--width);
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .675rem;
+    font-weight: 500;
+    user-select: none;
+
+}
+
+
+.panel input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.panel input[type="radio"]:checked~.content {
+    display: block;
+
+    animation: fadein 1s;
+}
+
+.panel .content {
+    display: none;
+    color: #000;
+}
+
+
+body:has(#tab-1:checked) label[for='tab-1'] {
+    color: #185ee0;
+
+}
+
+body:has(#tab-2:checked) label[for='tab-2'] {
+    color: #185ee0;
+}
+
+body:has(#tab-3:checked) label[for='tab-3'] {
+    color: #185ee0;
+}
+
+body:has(#tab-1:checked) .slider {
+    transform: translateX(0);
+}
+
+body:has(#tab-2:checked) .slider {
+    transform: translateX(100%);
+}
+
+body:has(#tab-3:checked) .slider {
+    transform: translateX(200%);
+}
+
+.slider {
+    background-color: #185ee017;
+    height: 100%;
+    width: 200px;
+    border-radius: 150px;
+    display: flex;
+    position: absolute;
+    transition: 0.25s ease-out;
+    z-index: 1;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.fadein {
+    animation: fadein 1s;
+}
