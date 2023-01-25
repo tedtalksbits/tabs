@@ -28,10 +28,10 @@ body {
 }
 
 .center-content {
-    display: flex;
+    /* display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; */
     max-width: 120ch;
     margin: 0 auto;
 }
@@ -105,6 +105,12 @@ body:has(#tab-3:checked) label[for='tab-3'] {
     color: #185ee0;
 }
 
+body:has(#tab-4:checked) label[for='tab-4'] {
+    color: #185ee0;
+}
+
+
+
 body:has(#tab-1:checked) .slider {
     transform: translateX(0);
 }
@@ -115,6 +121,10 @@ body:has(#tab-2:checked) .slider {
 
 body:has(#tab-3:checked) .slider {
     transform: translateX(200%);
+}
+
+body:has(#tab-4:checked) .slider {
+    transform: translateX(300%);
 }
 
 .slider {
