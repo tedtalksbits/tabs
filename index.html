@@ -20,7 +20,7 @@
 
         <div class="panels">
             <div class="panel">
-                <input type="radio" id="tab-1" name="tab-group-1" checked />
+                <input type="radio" id="tab-1" name="tab-group-1" />
                 <div class="content">
                     <h2>Basic</h2>
                     <p>
@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="panel">
-                <input type="radio" id="tab-2" name="tab-group-1" />
+                <input type="radio" id="tab-2" name="tab-group-1" checked />
                 <div class="content">
                     <h2>Premium</h2>
                     <p>
@@ -75,5 +75,58 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            const radios = document.querySelectorAll('input[type="radio"]');
+
+            function handleRadioClick(e) {
+                const slider = document.querySelector('.slider');
+
+                const tab = document.querySelector(
+                    `label[for="${e.target.id}"]`
+                );
+
+                const allOtherTabs = document.querySelectorAll(
+                    `label:not([for="${e.target.id}"])`
+                );
+
+                tab.classList.add('active');
+
+                allOtherTabs.forEach((tab) => {
+                    tab.classList.remove('active');
+                });
+
+                const tabWidth = tab.offsetWidth;
+                const tabOffsetLeft = tab.offsetLeft;
+
+                slider.style.width = `${tabWidth}px`;
+                slider.style.transform = `translateX(${tabOffsetLeft}px)`;
+            }
+
+            function handleInitialActiveTab() {
+                const checkedInput = document.querySelector(
+                    '.panel input[checked]'
+                );
+
+                const checkedLabel = document.querySelector(
+                    `label[for="${checkedInput.id}"]`
+                );
+
+                checkedLabel.classList.add('active');
+
+                const checkedLabelWidth = checkedLabel.offsetWidth;
+                const checkedLabelOffsetLeft = checkedLabel.offsetLeft;
+                const slider = document.querySelector('.slider');
+
+                slider.style.width = `${checkedLabelWidth}px`;
+                slider.style.transform = `translateX(${checkedLabelOffsetLeft}px)`;
+            }
+
+            handleInitialActiveTab();
+
+            radios.forEach((radio) => {
+                radio.addEventListener('click', handleRadioClick);
+            });
+        </script>
     </body>
 </html>

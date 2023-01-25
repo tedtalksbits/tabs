@@ -92,7 +92,7 @@ body {
 }
 
 
-body:has(#tab-1:checked) label[for='tab-1'] {
+/* body:has(#tab-1:checked) label[for='tab-1'] {
     color: #185ee0;
 
 }
@@ -107,11 +107,14 @@ body:has(#tab-3:checked) label[for='tab-3'] {
 
 body:has(#tab-4:checked) label[for='tab-4'] {
     color: #185ee0;
+} */
+
+.tab.active {
+    color: #185ee0;
 }
 
 
-
-body:has(#tab-1:checked) .slider {
+/* body:has(#tab-1:checked) .slider {
     transform: translateX(0);
 }
 
@@ -125,7 +128,7 @@ body:has(#tab-3:checked) .slider {
 
 body:has(#tab-4:checked) .slider {
     transform: translateX(300%);
-}
+} */
 
 .slider {
     background-color: #185ee017;
